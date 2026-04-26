@@ -1,0 +1,1465 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>ECO ProCar – Servis Perawatan & Perbaikan Mobil</title>
+    <meta
+      name="description"
+      content="ECO Professional Car Service adalah bengkel otomotif terpercaya yang menyediakan solusi perawatan mobil yang andal dan terjangkau."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/webp"
+      href="https://carisolusi.biz.id/gambarbebas/20260322-010644_logo-circle.webp"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: 'hsl(348,83%,47%)',
+              'brand-fg': 'hsl(0,0%,100%)',
+              'dark-bg': 'hsl(0,0%,5%)',
+              'dark-surface': 'hsl(0,0%,8%)',
+              'dark-fg': 'hsl(0,0%,95%)',
+              'dark-muted': 'hsl(0,0%,60%)',
+              'wa-green': 'hsl(142,70%,45%)',
+              'star-gold': 'hsl(45,93%,58%)',
+            },
+            fontFamily: {
+              display: ['Outfit', 'sans-serif'],
+              body: ['Plus Jakarta Sans', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        background: #fff;
+        color: hsl(0, 0%, 10%);
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Outfit', sans-serif;
+      }
+      .hero-overlay {
+        background: linear-gradient(
+          to bottom,
+          hsla(0, 0%, 0%, 0.3) 0%,
+          hsla(0, 0%, 0%, 0.5) 50%,
+          hsla(0, 0%, 0%, 0.8) 100%
+        );
+      }
+      .hero-shadow {
+        font-size: clamp(3rem, 10vw, 9rem);
+        letter-spacing: 0.2em;
+        opacity: 0.12;
+        text-transform: uppercase;
+      }
+      .mobile-menu {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+      .mobile-menu.menu-open {
+        animation: menu-drop 0.35s ease forwards;
+      }
+      @keyframes menu-drop {
+        from {
+          opacity: 0;
+          transform: translateY(-12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .t-transform {
+        transition: transform 0.2s;
+      }
+      .t-colors {
+        transition:
+          color 0.2s,
+          background-color 0.2s,
+          border-color 0.2s;
+      }
+      .t-scale:active {
+        transform: scale(0.95);
+      }
+      .service-card,
+      .brand-card {
+        transition:
+          transform 0.2s,
+          box-shadow 0.3s;
+      }
+      .service-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 22px 45px -20px rgba(0, 0, 0, 0.55);
+      }
+      .brand-card {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+      }
+      .brand-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.45);
+      }
+      .brand-logo {
+        filter: grayscale(1) brightness(0.75);
+        transition:
+          filter 0.3s,
+          transform 0.3s;
+      }
+      .brand-card:hover .brand-logo {
+        filter: grayscale(0) brightness(1);
+        transform: scale(1.03);
+      }
+      .angled-media {
+        clip-path: polygon(0 0, 96% 0, 100% 100%, 0 100%);
+      }
+      .marquee {
+        overflow: hidden;
+        border-top: 1px solid #e5e7eb;
+      }
+      .marquee-track {
+        display: flex;
+        width: max-content;
+        animation: marquee-left 34s linear infinite;
+        will-change: transform;
+      }
+      .marquee-logo {
+        height: 38px;
+        width: auto;
+        filter: grayscale(1);
+        opacity: 0.55;
+        transition:
+          filter 0.3s,
+          opacity 0.3s;
+      }
+      .marquee-logo:hover {
+        filter: grayscale(0);
+        opacity: 0.9;
+      }
+      .testimonial-track {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+      }
+      .testimonial-card {
+        position: relative;
+        padding: 1.15rem 1.15rem 1.25rem;
+        border: 1px solid rgba(229, 231, 235, 0.92);
+        border-radius: 1.5rem;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.98) 0%,
+          rgba(248, 250, 252, 0.98) 100%
+        );
+        box-shadow:
+          0 20px 45px -30px rgba(15, 23, 42, 0.28),
+          0 10px 20px -18px rgba(15, 23, 42, 0.18);
+      }
+      .testimonial-card::before {
+        position: absolute;
+        inset: 0;
+        content: '';
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(
+          135deg,
+          rgba(225, 29, 72, 0.18),
+          rgba(255, 255, 255, 0)
+        );
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+      .testimonial-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      .testimonial-user {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+      }
+      .testimonial-photo {
+        width: 3.25rem;
+        height: 3.25rem;
+        border-radius: 999px;
+        object-fit: cover;
+        border: 2px solid rgba(255, 255, 255, 0.98);
+        box-shadow: 0 10px 22px -16px rgba(15, 23, 42, 0.6);
+      }
+      .testimonial-handle {
+        display: block;
+        margin-top: 0.15rem;
+        color: #9ca3af;
+        font-size: 0.72rem;
+        line-height: 1.1;
+      }
+      .testimonial-badge {
+        display: grid;
+        place-items: center;
+        width: 2rem;
+        height: 2rem;
+        flex-shrink: 0;
+        border-radius: 999px;
+        color: #111827;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(17, 24, 39, 0.08);
+        box-shadow: 0 10px 18px -16px rgba(17, 24, 39, 0.45);
+      }
+      .testimonial-quote {
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.55rem;
+        line-height: 1;
+        color: hsl(348, 83%, 47%);
+        margin-bottom: 0.7rem;
+      }
+      .testimonial-text {
+        font-size: 1.12rem;
+        line-height: 1.35;
+        letter-spacing: -0.02em;
+        color: #111827;
+      }
+      .testimonial-meta {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .testimonial-stars {
+        color: hsl(45, 93%, 58%);
+        letter-spacing: 0.14em;
+        font-size: 0.82rem;
+      }
+      .testimonial-time {
+        font-size: 0.74rem;
+        color: #9ca3af;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      @keyframes marquee-left {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      @media (max-width: 1024px) {
+        .angled-media {
+          clip-path: none;
+        }
+        .testimonial-track {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 640px) {
+        .testimonial-track {
+          grid-template-columns: 1fr;
+          padding: 0;
+        }
+        .testimonial-card {
+          padding: 1rem;
+        }
+        .testimonial-text {
+          font-size: 1rem;
+          line-height: 1.4;
+        }
+        .testimonial-photo {
+          width: 3rem;
+          height: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar" class="fixed top-0 w-full z-50">
+      <div class="bg-brand">
+        <div
+          class="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-3"
+        >
+          <a href="#home">
+            <div class="flex items-center gap-2">
+              <span
+                class="font-display font-extrabold text-2xl text-white tracking-tighter"
+                >E C O<span class="font-light">CAR</span></span
+              ><span
+                class="hidden sm:inline text-white/60 text-xs italic font-body"
+                >Professional</span
+              >
+            </div>
+          </a>
+          <div id="desktop-nav" class="hidden lg:flex items-center gap-6"></div>
+          <div class="hidden lg:block">
+            <a
+              href="https://wa.me/6281384072641?text=Halo%2C%20Eco%20Professional%20Car%20Service.%20saya%20ingin%20minta%20penawaran%20untuk%20layanan..................%20%20Mohon%20info%20ya."
+              target="_blank"
+              class="border border-white/60 text-white font-display font-bold uppercase tracking-wider text-xs py-2 px-6 rounded-full hover:bg-white/10 t-transform t-scale"
+              >MINTA PENAWARAN</a
+            >
+          </div>
+          <button
+            id="menu-btn"
+            class="lg:hidden text-white"
+            aria-label="Buka/tutup menu"
+          >
+            <svg
+              id="icon-menu"
+              class="w-7 h-7"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              /></svg
+            ><svg
+              id="icon-close"
+              class="w-7 h-7 hidden"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="mobile-menu lg:hidden hidden bg-brand/95 backdrop-blur-sm border-t border-white/10"
+      >
+        <div id="mobile-nav" class="flex flex-col px-6 py-4 gap-4"></div>
+      </div>
+    </nav>
+    <section
+      id="home"
+      class="relative min-h-screen flex items-end pb-28 md:pb-36"
+    >
+      <div class="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&q=80"
+          alt="Interior mobil mewah"
+          class="w-full h-full object-cover"
+        />
+        <div class="hero-overlay absolute inset-0"></div>
+      </div>
+      <div
+        class="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+      >
+        <h2
+          class="hero-shadow font-display font-extrabold text-white/10 text-center"
+        >
+          ECO PRO CAR
+        </h2>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full">
+        <h1
+          class="font-display font-extrabold text-3xl md:text-5xl lg:text-6xl text-white uppercase leading-tight mb-4"
+          style="letter-spacing: -0.03em"
+        >
+          PERAWATAN MOBIL<br />&amp;PERBAIKAN
+        </h1>
+        <p
+          class="text-white/70 font-body text-sm md:text-base max-w-lg leading-relaxed mb-8"
+        >
+          Baik perawatan rutin maupun perbaikan kompleks,Anda bisa mempercayakan
+          kendaraan Anda kepada tim kami dengan profesionalisme dan perhatian
+          pada detail.
+        </p>
+        <a
+          href="#our-services"
+          class="inline-block bg-brand text-white font-display font-bold uppercase tracking-wider text-sm px-8 py-3 hover:opacity-90 t-transform t-scale"
+          >DAPATKAN LAYANAN</a
+        >
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur">
+        <div class="marquee py-5 px-6">
+          <div id="brand-marquee" class="marquee-track items-center"></div>
+        </div>
+      </div>
+      <div
+        class="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3"
+      >
+        <a
+          href="https://wa.me/6281384072641?text=Halo%2C%20saya%20ingin%20konsultasi%20cepat%20tentang%20layanan%20Eco%20Professional%20Car%20Service.%20Mohon%20info%20ya."
+          target="_blank"
+          rel="noopener"
+          class="w-12 h-12 rounded-full bg-brand flex items-center justify-center hover:opacity-90 t-transform t-scale shadow-lg"
+          aria-label="Konsultasi WhatsApp"
+          ><svg
+            class="w-5 h-5 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+            /></svg></a
+        ><a
+          href="https://wa.me/6281384072641?text=Halo%2C%20saya%20ingin%20informasi%20layanan%20dan%20harga%20di%20Eco%20Professional%20Car%20Service."
+          target="_blank"
+          rel="noopener"
+          class="w-12 h-12 rounded-full bg-wa-green flex items-center justify-center hover:opacity-90 t-transform t-scale shadow-lg"
+          aria-label="WhatsApp"
+          ><svg
+            class="w-5 h-5 text-white"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+            />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.587l-.386-.232-2.643.886.886-2.643-.232-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"
+            /></svg
+        ></a>
+      </div>
+    </section>
+    <section id="about-us" class="py-20 md:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-start mb-16">
+          <div class="overflow-hidden rounded-lg angled-media">
+            <img
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&q=80"
+              alt="Interior mobil"
+              class="w-full h-80 lg:h-[450px] object-cover"
+            />
+          </div>
+          <div>
+            <p
+              class="text-brand font-display font-bold text-sm tracking-[0.2em] uppercase mb-3 text-right"
+            >
+              TENTANG KAMI
+            </p>
+            <h2
+              class="font-display font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight uppercase text-right mb-4"
+              style="letter-spacing: -0.03em"
+            >
+              SOLUSI SATU PINTU UNTUK SEMUA KEBUTUHAN HIBURAN,KEAMANAN,DAN
+              KUSTOMISASI DI DALAM MOBIL
+            </h2>
+            <p
+              class="font-display font-semibold text-sm text-brand uppercase tracking-wide text-right mb-6"
+            >
+              KAMI PAHAM ANDA MEMILIKI AKTIVITAS PADAT,KARENA ITU KAMI
+              MEMUDAHKAN ANDA MENITIPKAN KENDARAAN UNTUK DIRAWAT.
+            </p>
+            <p
+              class="font-body text-sm text-gray-500 leading-[1.8] text-right mb-8"
+            >
+              ECO Professional Car Service adalah bengkel otomotif terpercaya
+              yang menyediakan solusi perawatan mobil yang andal dan terjangkau.
+              Kami berkomitmen memberikan layanan pelanggan yang ramah,waktu
+              pengerjaan yang cepat,dan kualitas kerja terbaik untuk setiap
+              kendaraan yang datang ke bengkel kami. Kami bekerja efisien tanpa
+              mengorbankan kualitas,memastikan mobil Anda kembali ke jalan
+              dengan aman dan cepat. Di ECO Professional Car Service,kepuasan
+              pelanggan adalah prioritas kami. Kami percaya perawatan mobil
+              profesional harus dapat diakses semua orang,karena itu kami
+              menawarkan layanan jujur,harga ekonomis,dan hasil yang dapat
+              diandalkan.
+            </p>
+          </div>
+        </div>
+        <div
+          class="bg-gray-50 rounded-xl shadow-[0_2px_20px_-4px_hsla(0,0%,0%,0.08)] p-6 md:p-8"
+        >
+          <div
+            id="stats-grid"
+            class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+          ></div>
+        </div>
+      </div>
+    </section>
+    <section id="our-services" class="py-20 md:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <p
+          class="text-brand font-display font-bold text-sm tracking-[0.2em] uppercase mb-3"
+        >
+          LAYANAN KAMI
+        </p>
+        <h2
+          class="font-display font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight uppercase mb-12 max-w-3xl"
+          style="letter-spacing: -0.03em"
+        >
+          LAYANAN BENGKEL LENGKAP UNTUK PERAWATAN &amp;PERBAIKAN MOBIL
+        </h2>
+        <div
+          id="services-grid"
+          class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        ></div>
+        <div class="flex justify-center mt-12">
+          <a
+            href="https://wa.me/6281384072641?text=Halo%2C%20saya%20ingin%20booking%20layanan%20service%20mobil.%20Mohon%20info%20jadwal%20dan%20estimasi%20biayanya.%20Terima%20kasih."
+            target="_blank"
+            rel="noopener"
+            class="inline-block bg-brand text-white font-display font-bold uppercase tracking-wider text-sm px-10 py-3 hover:opacity-90 t-transform t-scale"
+            >PESAN SERVIS</a
+          >
+        </div>
+      </div>
+    </section>
+    <section id="our-works" class="py-20 md:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-start gap-8 mb-12">
+          <div class="flex-1">
+            <p
+              class="text-brand font-display font-bold text-sm tracking-[0.2em] uppercase mb-3"
+            >
+              PROMO
+            </p>
+            <h2
+              class="font-display font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight uppercase mb-3"
+              style="letter-spacing: -0.03em"
+            >
+              HIGHLIGHTS PROMO BENGKEL
+            </h2>
+            <p class="font-body text-sm text-gray-500 leading-relaxed max-w-xl">
+              Voucher promo untuk layanan bengkel favorit dan events.
+            </p>
+          </div>
+          <div
+            class="bg-dark-bg text-dark-fg rounded-lg p-6 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.5)] w-full lg:w-[360px]"
+          >
+            <p
+              class="font-display font-bold text-xs uppercase tracking-[0.2em] text-dark-muted mb-3"
+            >
+              MENGAPA PROMO INI MENGUNTUNGKAN ANDA?
+            </p>
+            <ul class="space-y-3 text-sm">
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-brand mt-1.5"></span
+                >Konsultasi gratis untuk kebutuhan servis
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-brand mt-1.5"></span
+                >Estimasi pekerjaan transparan
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-brand mt-1.5"></span
+                >Garansi pengerjaan (syarat &amp;ketentuan berlaku)
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="promo-grid" class="grid md:grid-cols-2 gap-6"></div>
+      </div>
+    </section>
+    <section id="brands" class="py-20 md:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <p
+          class="text-brand font-display font-bold text-sm tracking-[0.2em] uppercase mb-3"
+        >
+          MITRA KAMI
+        </p>
+        <h2
+          class="font-display font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight uppercase mb-12"
+          style="letter-spacing: -0.03em"
+        >
+          MEREK RESMI
+        </h2>
+        <div
+          id="brands-grid"
+          class="grid grid-cols-2 lg:grid-cols-4 gap-6"
+        ></div>
+      </div>
+    </section>
+    <section id="blogs" class="py-20 md:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <p
+          class="text-brand font-display font-bold text-sm tracking-[0.2em] uppercase mb-3"
+        >
+          BLOG
+        </p>
+        <h2
+          class="font-display font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight uppercase mb-12"
+          style="letter-spacing: -0.03em"
+        >
+          BLOG KAMI
+        </h2>
+        <div class="relative">
+          <div id="blog-grid" class="grid md:grid-cols-2 gap-8"></div>
+          <div
+            class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 flex-col gap-2"
+          >
+            <button
+              class="w-10 h-10 border border-brand text-brand flex items-center justify-center hover:bg-brand hover:text-white t-colors t-scale"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg></button
+            ><button
+              class="w-10 h-10 border border-brand text-brand flex items-center justify-center hover:bg-brand hover:text-white t-colors t-scale"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="testimonials"
+      class="py-20 md:py-28 bg-white relative overflow-hidden"
+    >
+      <div class="max-w-6xl mx-auto px-4 md:px-8 text-center">
+        <p
+          class="text-brand font-display font-bold text-sm tracking-[0.2em] uppercase mb-3"
+        >
+          TESTIMONI
+        </p>
+        <h2
+          class="font-display font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight uppercase mb-12"
+          style="letter-spacing: -0.03em"
+        >
+          APA KATA KLIEN KAMI
+        </h2>
+        <div
+          id="testimonial-track"
+          class="testimonial-track text-left max-w-6xl mx-auto"
+          aria-label="Daftar testimoni"
+        ></div>
+      </div>
+    </section>
+    <footer id="contact-us" class="bg-dark-bg text-dark-fg">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-10">
+        <div class="text-center mb-12">
+          <span
+            class="font-display font-extrabold text-3xl text-dark-fg tracking-tighter"
+            >E C O<span class="font-light">CAR</span></span
+          >
+          <p class="text-brand text-xs italic font-body mt-1">
+            Professional Service
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-10 mb-12">
+          <div>
+            <h4
+              class="text-brand font-display font-bold text-sm uppercase tracking-wider mb-6"
+            >
+              TAUTAN CEPAT
+            </h4>
+            <ul id="quick-links" class="space-y-3"></ul>
+          </div>
+          <div>
+            <h4
+              class="text-brand font-display font-bold text-sm uppercase tracking-wider mb-6"
+            >
+              LAYANAN
+            </h4>
+            <ul id="footer-services" class="space-y-3"></ul>
+          </div>
+          <div>
+            <h4
+              class="text-brand font-display font-bold text-sm uppercase tracking-wider mb-6"
+            >
+              KIRIM EMAIL ANDA UNTUK SOLUSI TERBAIK
+            </h4>
+            <div class="mb-6">
+              <input
+                type="email"
+                placeholder="Masukkan email Anda"
+                class="w-full bg-dark-surface border border-dark-muted/20 text-dark-fg px-4 py-3 text-sm font-body rounded-sm mb-3 focus:outline-none focus:ring-2 focus:ring-brand"
+              />
+              <div class="flex gap-3">
+                <button
+                  class="bg-brand text-white font-display font-bold uppercase tracking-wider text-xs px-8 py-3 hover:opacity-90 t-transform t-scale flex-1"
+                >
+                  BERLANGGANAN</button
+                ><button
+                  class="border border-dark-muted/30 text-dark-fg font-display font-bold uppercase tracking-wider text-xs px-8 py-3 hover:bg-dark-surface t-colors t-scale flex-1"
+                >
+                  MINTA PENAWARAN
+                </button>
+              </div>
+            </div>
+            <div
+              class="flex items-start gap-2 text-dark-muted text-xs font-body leading-relaxed"
+            >
+              <svg
+                class="w-4 h-4 text-brand mt-0.5 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                /></svg
+              ><span
+                >Jl.alternatif cibubur kp. Bpm RT.002/RW.016<br />Cileungsi
+                kabupaten Bogor Kec. cileungsi</span
+              >
+            </div>
+            <div
+              class="mt-4 overflow-hidden rounded-lg border border-dark-muted/20"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.940701387244!2d106.9576205758002!3d-6.401642193589003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699562f6ecad45%3A0x5d8d29d4013f6034!2sE%20C%20O%20PROFESIONAL%20Car%20service!5e0!3m2!1sen!2sid!4v1773652436738!5m2!1sen!2sid"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="w-full h-64 md:h-72"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-dark-surface border-t border-dark-muted/10">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-6">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+            <a
+              href="https://wa.me/6281384072641?text=Halo%2C%20saya%20ingin%20info%20layanan%20dan%20promo%20terbaru%20di%20Eco%20Professional%20Car%20Service."
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-3 group"
+              ><div
+                class="w-10 h-10 rounded-full bg-wa-green flex items-center justify-center shrink-0"
+              >
+                <svg
+                  class="w-4 h-4 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-dark-muted font-body">WhatsApp</p>
+                <p
+                  class="text-sm text-dark-fg font-display font-semibold group-hover:text-brand t-colors"
+                >
+                  +6281384072641
+                </p>
+              </div></a
+            ><a
+              href="mailto:info@ecoprocar.biz.id"
+              class="flex items-center gap-3 group"
+              ><div
+                class="w-10 h-10 rounded-full bg-brand flex items-center justify-center shrink-0"
+              >
+                <svg
+                  class="w-4 h-4 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-dark-muted font-body">Email:</p>
+                <p
+                  class="text-sm text-dark-fg font-display font-semibold group-hover:text-brand t-colors"
+                >
+                  info@ecoprocar.biz.id
+                </p>
+              </div></a
+            ><a
+              href="https://wa.me/6281384072641?text=Halo%2C%20saya%20ingin%20booking%20servis%20dan%20menanyakan%20jadwal%20yang%20tersedia."
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-3 group"
+              ><div
+                class="w-10 h-10 rounded-full bg-brand flex items-center justify-center shrink-0"
+              >
+                <svg
+                  class="w-4 h-4 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-dark-muted font-body">Hubungi kami:</p>
+                <p
+                  class="text-sm text-dark-fg font-display font-semibold group-hover:text-brand t-colors"
+                >
+                  +6281384072641
+                </p>
+              </div></a
+            >
+            <div class="flex items-center gap-4">
+              <span
+                class="text-brand font-display font-bold text-xs tracking-wider"
+                >IKUTI KAMI</span
+              ><a
+                href="#"
+                aria-label="Facebook"
+                class="w-8 h-8 rounded-full border border-dark-muted/30 flex items-center justify-center text-dark-muted hover:text-brand hover:border-brand t-colors t-scale"
+                ><svg
+                  class="w-3.5 h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.7-1.6H17V3.8c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.3V10H7.7v3h2.7v8h3.1z"
+                  /></svg></a
+              ><a
+                href="#"
+                aria-label="YouTube"
+                class="w-8 h-8 rounded-full border border-dark-muted/30 flex items-center justify-center text-dark-muted hover:text-brand hover:border-brand t-colors t-scale"
+                ><svg
+                  class="w-4 h-4"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.7-.8-2.1-.9C15.9 5 12 5 12 5s-3.9 0-6.9.1c-.4 0-1.3.1-2.1.9-.6.6-.8 2-.8 2S2 9.6 2 11.3v1.5C2 14.4 2.2 16 2.2 16s.2 1.4.8 2c.8.8 1.9.8 2.4.9 1.7.2 6.6.1 6.6.1s3.9 0 6.9-.1c.4 0 1.3-.1 2.1-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C22 9.6 21.8 8 21.8 8zM9.8 15.1V8.9l6 3.1-6 3.1z"
+                  /></svg></a
+              ><a
+                href="#"
+                aria-label="LinkedIn"
+                class="w-8 h-8 rounded-full border border-dark-muted/30 flex items-center justify-center text-dark-muted hover:text-brand hover:border-brand t-colors t-scale"
+                ><svg
+                  class="w-3.5 h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M6.9 8.7A1.8 1.8 0 116.9 5a1.8 1.8 0 010 3.7zM5.3 9.9h3.2V19H5.3V9.9zM10.4 9.9h3.1v1.3h.1c.4-.8 1.5-1.6 3.1-1.6 3.3 0 3.9 2.2 3.9 5V19h-3.2v-3.8c0-.9 0-2.1-1.3-2.1s-1.5 1-1.5 2V19h-3.2V9.9z"
+                  /></svg></a
+              ><a
+                href="#"
+                aria-label="Instagram"
+                class="w-8 h-8 rounded-full border border-dark-muted/30 flex items-center justify-center text-dark-muted hover:text-brand hover:border-brand t-colors t-scale"
+                ><svg
+                  class="w-3.5 h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle
+                    cx="17.4"
+                    cy="6.6"
+                    r="0.9"
+                    fill="currentColor"
+                    stroke="none"
+                  /></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-dark-muted/10 py-4">
+        <p class="text-center text-xs text-dark-muted font-body">
+          Seluruh Hak Cipta Dilindungi
+          <span class="text-brand font-semibold"
+            >ECO Professional Car Service</span
+          >
+          2026 | WebDev by Diamant Digital
+        </p>
+      </div>
+    </footer>
+    <script>
+      const html = String.raw;
+      const navLinks = [
+        ['#home', 'Beranda'],
+        ['#about-us', 'Tentang Kami'],
+        ['#our-services', 'Layanan Kami'],
+        ['#our-works', 'Promo'],
+        ['#contact-us', 'Hubungi Kami'],
+      ];
+      const brandLogos = [
+        [
+          'Suzuki',
+          'https://upload.wikimedia.org/wikipedia/commons/3/31/Suzuki_Motor_Corporation_logo.svg',
+          'h-9 md:h-11 lg:h-12',
+        ],
+        [
+          'Mitsubishi',
+          'https://upload.wikimedia.org/wikipedia/commons/1/1f/Mitsubishi_Motors_SVG_logo.svg',
+          'h-9 md:h-11 lg:h-12',
+        ],
+        [
+          'Honda',
+          'https://upload.wikimedia.org/wikipedia/commons/7/7b/Honda_Logo.svg',
+          'h-10 md:h-12 lg:h-14',
+        ],
+        [
+          'Toyota',
+          'https://upload.wikimedia.org/wikipedia/commons/e/ee/Toyota_logo_%28Red%29.svg',
+          'h-10 md:h-12 lg:h-14',
+        ],
+        [
+          'Mazda',
+          'https://upload.wikimedia.org/wikipedia/commons/3/3f/Mazda_logo.svg',
+          'h-10 md:h-12 lg:h-14',
+        ],
+        [
+          'Hyundai',
+          'https://upload.wikimedia.org/wikipedia/commons/4/44/Hyundai_Motor_Company_logo.svg',
+          'h-10 md:h-12 lg:h-14',
+        ],
+        [
+          'Nissan',
+          'https://upload.wikimedia.org/wikipedia/commons/2/23/Nissan_2020_logo.svg',
+          'h-9 md:h-11 lg:h-12',
+        ],
+        [
+          'Daihatsu',
+          'https://upload.wikimedia.org/wikipedia/commons/3/33/Daihatsu_Logo.svg',
+          'h-9 md:h-11 lg:h-12',
+        ],
+      ];
+      const stats = [
+        ['5+', 'TAHUN<br />PENGALAMAN'],
+        ['50+', 'BRANDS'],
+        ['500+', 'MOBIL DITANGANI'],
+        ['100+', 'PELANGGAN<br />PUAS'],
+      ];
+      const services = [
+        [
+          'Tune Up',
+          'Cek performa mesin agar tetap optimal.',
+          'https://images.unsplash.com/photo-1770656505709-fd97236989b9?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1600',
+        ],
+        [
+          'Ganti Oli',
+          'Penggantian oli mesin dan pengecekan filter.',
+          'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b2lsJTIwY2hhbmdlfGVufDB8fDB8fHww&ixlib=rb-4.1.0&q=60&w=1600',
+        ],
+        [
+          'Servis AC',
+          'Perawatan AC agar dingin dan bebas bau.',
+          'https://images.unsplash.com/photo-1652860316401-3a0181cbf478?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1600',
+        ],
+        [
+          'Elektrikal',
+          'Diagnosa dan perbaikan kelistrikan mobil.',
+          'https://images.unsplash.com/photo-1527383418406-f85a3b146499?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1600',
+        ],
+        [
+          'Ban Mobil',
+          'Balancing,rotasi,dan penggantian ban.',
+          'https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1200',
+        ],
+        [
+          'Turun Mesin',
+          'Overhaul mesin untuk performa maksimal.',
+          'https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1200',
+        ],
+        [
+          'Servis Radiator',
+          'Flush dan perawatan sistem pendingin.',
+          'https://images.unsplash.com/photo-1760804462190-82832c8eb582?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1600',
+        ],
+        [
+          'Turun Kopling',
+          'Perbaikan sistem kopling dan transmisi.',
+          'https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1200',
+        ],
+        [
+          'Servis Dinamo',
+          'Perbaikan alternator/dinamo pengisian.',
+          'https://images.unsplash.com/photo-1673909448809-596113853f6f?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YWx0ZXJuYXRvcnxlbnwwfHwwfHx8MA%3D%3D&ixlib=rb-4.1.0&q=60&w=1600',
+        ],
+        [
+          'Servis Rem',
+          'Perawatan rem agar aman dan responsif.',
+          'https://images.unsplash.com/photo-1760317890314-e964ffd7e6a6?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1600',
+        ],
+        [
+          'Servis Kaki-Kaki',
+          'Perbaikan suspensi untuk kenyamanan.',
+          'https://images.unsplash.com/photo-1572917577459-94c6996f9736?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3&q=60&w=1600',
+        ],
+        [
+          'Ganti ACCU',
+          'Penggantian aki dengan pengecekan arus.',
+          'https://images.unsplash.com/photo-1668244948162-084e4310a9b5?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1600',
+        ],
+      ];
+      const promos = [
+        [
+          'Terlaris',
+          'Paket Ganti Oli + Filter',
+          'Rp490.000',
+          'Rp390.000',
+          'Oli sintetis 4L + filter oli + pemeriksaan 21 titik.',
+          ['Oli Mesin 4L', 'Filter Oli', '21-Point Check'],
+          'https://images.unsplash.com/photo-1771340742493-52fbd5476ccb?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1400',
+          'Paket Ganti Oli',
+        ],
+        [
+          'Hemat Ban',
+          'Paket Spooring + Balancing',
+          'Rp250.000',
+          'Rp190.000',
+          'Stabil & nyaman,termasuk pengecekan tekanan ban.',
+          ['Spooring 4 Roda', 'Balancing 4 Roda', 'Cek Tekanan Ban'],
+          'https://images.unsplash.com/photo-1764015805414-df7de89d405b?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1400',
+          'Paket Spooring + Balancing',
+        ],
+        [
+          'Gratis Konsultasi',
+          'Paket General Check Up',
+          'Rp380.000',
+          'Rp299.000',
+          'Cek sistem rem,suspensi,dan kelistrikan dasar.',
+          ['Cek Rem', 'Cek Suspensi', 'Cek Kelistrikan'],
+          'https://images.unsplash.com/photo-1767681092416-bccf9410bda4?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1400',
+          'Paket Pemeriksaan Umum',
+        ],
+        [
+          'Kabin Sejuk',
+          'Paket AC Care + Interior',
+          'Rp550.000',
+          'Rp449.000',
+          'Perawatan AC + pembersihan interior ringan.',
+          ['Cek Freon', 'Bersihkan Evaporator', 'Vacuum Interior'],
+          'https://images.unsplash.com/photo-1652453822981-653a9a522a5b?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1400',
+          'Paket Perawatan AC + Interior',
+        ],
+      ];
+      const blogs = [
+        [
+          '05 November 2022',
+          '10.00 WIB',
+          'UPGRADE AUDIO PAJERO MITSUBISHI DENGAN SPEAKER HERTZ',
+          'Lorem ipsum dolor sit amet,consectetur adipiscing elit. Dolor massa auctor duis egestas pellentesque rutrum venenatis.',
+          'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80',
+          'Pajero',
+        ],
+        [
+          '24 Januari 2022',
+          '14.55 WIB',
+          'UPGRADE AUDIO UNTUK NISSAN PATROL PLATINUM',
+          'Lorem ipsum dolor sit amet,consectetur adipiscing elit. Pellentesque iaculis risus.',
+          'https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=800&q=80',
+          'Patrol',
+        ],
+      ];
+      const testimonials = [
+        [
+          'jihan pitaloka',
+          '@jihanpitaloka',
+          '3 bulan lalu',
+          'Terima kasih Eco Profesional sudah servis mobil aku,harganya terjangkau,pelayanannya oke.',
+          'https://carisolusi.biz.id/gambarbebas/20260322-112354_jihan%20pitaloka.png',
+        ],
+        [
+          'rengga rengga',
+          '@renggarengga',
+          'sebulan lalu',
+          'Pelayanannya cepat,ramah,harga murah,semoga kualitasnya juga bagus.',
+          'https://carisolusi.biz.id/gambarbebas/20260322-112354_rengga%20rengga.png',
+        ],
+        [
+          'Nina Juliana',
+          '@ninajuliana',
+          '5 bulan lalu',
+          'Pelayanan nya baik dan responsif. Sukses selalu.',
+          'https://carisolusi.biz.id/gambarbebas/20260322-112354_nina%20juliana.png',
+        ],
+        [
+          'toyota cibubur',
+          '@toyotacibubur',
+          '5 bulan lalu',
+          'Bengkel semua merk,teknisinya oke-oke banget.',
+          'https://upload.wikimedia.org/wikipedia/commons/e/ee/Toyota_logo_%28Red%29.svg',
+        ],
+        [
+          'Jasa Kreasi Agung',
+          '@jasakreasiagung',
+          '3 minggu lalu',
+          'Akurat dan cepat.',
+          'https://carisolusi.biz.id/gambarbebas/20260322-112354_jasa%20kreasi%20agung.png',
+        ],
+        [
+          'Khoerudin Khoer',
+          '@khoerudinkhoer',
+          '2 minggu lalu',
+          'Bengkel recommended,pelayanan ramah,mekaniknya profesional.',
+          'https://carisolusi.biz.id/gambarbebas/20260322-112354_khoerudin.png',
+        ],
+      ];
+      const quickLinks = [
+        ['#about-us', 'TENTANG KAMI'],
+        ['#our-services', 'LAYANAN KAMI'],
+        ['#our-works', 'PROMO'],
+        ['#blogs', 'BLOG'],
+        ['#brands', 'MEREK'],
+        ['#our-works', 'MOBIL PREMIUM'],
+        ['#contact-us', 'HUBUNGI KAMI'],
+      ];
+      const footerServices = [
+        'AUDIO HIBURAN MOBIL',
+        'HIBURAN MOBIL - MULTIMEDIA',
+        'AUDIO MARIN',
+        'SISTEM AUDIO MOTOR',
+        'AUDIO MOBIL KLASIK',
+        'PELAPIS KULIT DAN BODY KIT',
+        'KACA FILM',
+      ];
+      const $ = (s) => document.querySelector(s);
+      const slug = (s) => encodeURIComponent(s);
+      const render = (selector, items, map) =>
+        ($(selector).innerHTML = items.map(map).join(''));
+      render(
+        '#desktop-nav',
+        navLinks,
+        ([href, label]) =>
+          `<a href="${href}" class="font-body font-medium text-sm text-white/80 hover:text-white t-colors">${label}</a>`,
+      );
+      render(
+        '#mobile-nav',
+        navLinks,
+        ([href, label]) =>
+          `<a href="${href}" class="font-body font-medium text-base text-white/80 hover:text-white t-colors" data-close-menu>${label}</a>`,
+      );
+      $('#mobile-nav').insertAdjacentHTML(
+        'beforeend',
+        `<a href="https://wa.me/6281384072641?text=Halo%2C%20Eco%20Professional%20Car%20Service.%20saya%20ingin%20minta%20penawaran%20untuk%20layanan..................%20%20Mohon%20info%20ya."
+              target="_blank" class="border border-white/60 text-white font-display font-bold uppercase tracking-wider text-xs py-2 px-6 rounded-full text-center mt-2 hover:bg-white/10 t-colors" data-close-menu>MINTA PENAWARAN</a>`,
+      );
+      $('#brand-marquee').innerHTML = Array.from(
+        { length: 3 },
+        () =>
+          `<div class="flex items-center gap-12 pr-24">${brandLogos.map(([alt, src]) => `<img src="${src}" alt="${alt}" class="marquee-logo" loading="lazy" />`).join('')}</div>`,
+      ).join('');
+      render(
+        '#stats-grid',
+        stats,
+        ([value, label]) =>
+          `<div><div class="font-display font-extrabold text-4xl md:text-5xl text-brand">${value}</div><p class="font-display font-bold text-xs tracking-wider uppercase mt-1">${label}</p></div>`,
+      );
+      render(
+        '#services-grid',
+        services,
+        ([title, desc, img]) =>
+          html`<a
+            href="https://wa.me/6281384072641?text=${slug(
+              `Halo,saya ingin booking layanan ${title}. Mohon info jadwal dan estimasi biayanya. Terima kasih.`,
+            )}"
+            target="_blank"
+            rel="noopener"
+            class="service-card group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-[0_18px_40px_-24px_rgba(0,0,0,0.45)] t-transform"
+            aria-label="Pesan ${title}"
+            ><div class="relative h-44 md:h-52 overflow-hidden">
+              <img
+                src="${img}"
+                alt="${title}"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100"
+              ></div>
+            </div>
+            <div class="p-5">
+              <h3
+                class="font-display font-extrabold text-sm md:text-base uppercase tracking-wide"
+              >
+                ${title}
+              </h3>
+              <p class="font-body text-xs text-gray-500 leading-relaxed mt-2">
+                ${desc}
+              </p>
+              <div
+                class="mt-4 inline-flex items-center gap-2 text-brand font-display font-bold text-[11px] uppercase tracking-[0.2em]"
+              >
+                Pesan via WhatsApp
+              </div>
+            </div></a
+          >`,
+      );
+      render(
+        '#promo-grid',
+        promos,
+        ([badge, title, oldPrice, newPrice, desc, tags, img, alt]) =>
+          html`<article
+            class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-[0_18px_40px_-26px_rgba(0,0,0,0.45)]"
+          >
+            <div class="relative h-56 md:h-64 overflow-hidden">
+              <img
+                src="${img}"
+                alt="${alt}"
+                class="w-full h-full object-cover hover:scale-110  transition-transform duration-500"
+                loading="lazy"
+              /><span
+                class="absolute left-4 top-4 bg-brand text-white text-[10px] font-display font-bold uppercase tracking-[0.2em] px-3 py-1"
+                >${badge}</span
+              >
+            </div>
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-4">
+                <h3
+                  class="font-display font-extrabold text-sm md:text-base uppercase tracking-wide"
+                >
+                  ${title}
+                </h3>
+                <div class="text-right">
+                  <p class="text-xs text-gray-400 line-through">${oldPrice}</p>
+                  <p class="text-brand font-display font-bold">${newPrice}</p>
+                </div>
+              </div>
+              <p class="font-body text-xs text-gray-500 mt-3">${desc}</p>
+              <div class="flex flex-wrap gap-2 mt-4 text-[10px]">
+                ${tags
+                  .map(
+                    (tag) =>
+                      `<span class="border border-gray-200 px-3 py-1 uppercase tracking-[0.2em] font-display font-bold text-gray-500">${tag}</span>`,
+                  )
+                  .join('')}
+              </div>
+              <div
+                class="mt-5 flex items-center justify-between text-[10px] text-gray-400"
+              >
+                <span
+                  >Harga dapat berubah sesuai tipe dan kondisi kendaraan.</span
+                ><a
+                  href="https://wa.me/6281384072641?text=${slug(
+                    `Halo,saya ingin klaim promo ${title} dengan harga promo ${newPrice}. Mohon info syarat,persediaan slot,dan jadwal bookingnya. Terima kasih.`,
+                  )}"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-block bg-brand text-white font-display font-bold uppercase tracking-wider text-[10px] px-4 py-2 hover:opacity-90 t-transform t-scale"
+                  >Klaim Promo</a
+                >
+              </div>
+            </div>
+          </article>`,
+      );
+      render(
+        '#brands-grid',
+        brandLogos,
+        ([alt, src, size]) =>
+          `<div class="brand-card rounded-lg aspect-[4/3] flex items-center justify-center p-6 t-transform t-scale cursor-pointer"><img src="${src}" alt="${alt}" class="brand-logo ${size} w-auto" loading="lazy" /></div>`,
+      );
+      render(
+        '#blog-grid',
+        blogs,
+        ([date, time, title, desc, img, alt]) =>
+          html`<article>
+            <div class="overflow-hidden rounded-lg mb-4">
+              <img
+                src="${img}"
+                alt="${alt}"
+                class="w-full h-56 md:h-72 object-cover hover:scale-105"
+                style="transition:transform .5s"
+              />
+            </div>
+            <div
+              class="flex items-center gap-2 text-gray-500 text-xs font-body mb-3"
+            >
+              <svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" /></svg
+              ><span>${date}</span><span>${time}</span>
+            </div>
+            <h3
+              class="font-display font-extrabold text-brand uppercase text-sm md:text-base tracking-wide mb-3 leading-tight"
+            >
+              ${title}
+            </h3>
+            <p class="font-body text-sm text-gray-500 leading-[1.8] mb-4">
+              ${desc}
+            </p>
+            <a
+              href="#"
+              class="inline-block bg-brand text-white font-display font-bold uppercase tracking-wider text-xs px-8 py-3 hover:opacity-90 t-transform t-scale"
+              >BACA SELENGKAPNYA</a
+            >
+          </article>`,
+      );
+      render(
+        '#testimonial-track',
+        testimonials,
+        ([name, handle, time, text, photo]) =>
+          html`<article class="testimonial-card">
+            <div class="testimonial-head">
+              <div class="testimonial-user">
+                <img
+                  src="${photo}"
+                  alt="${name}"
+                  class="testimonial-photo"
+                  loading="lazy"
+                />
+                <div>
+                  <h3
+                    class="font-display font-bold text-[1.02rem] leading-tight text-slate-900"
+                  >
+                    ${name}
+                  </h3>
+                  <span class="testimonial-handle">${handle}</span>
+                </div>
+              </div>
+              <div
+                class="testimonial-badge font-display font-extrabold text-base"
+                aria-label="Google review"
+              >
+                <svg class="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill="#4285F4"
+                    d="M23.49 12.27c0-.79-.07-1.54-.21-2.27H12v4.3h6.45a5.52 5.52 0 01-2.39 3.62v3.01h3.88c2.27-2.09 3.55-5.17 3.55-8.66z"
+                  />
+                  <path
+                    fill="#34A853"
+                    d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.88-3.01c-1.07.72-2.45 1.14-4.06 1.14-3.12 0-5.76-2.11-6.7-4.95H1.3v3.1A12 12 0 0012 24z"
+                  />
+                  <path
+                    fill="#FBBC05"
+                    d="M5.3 14.27A7.2 7.2 0 014.92 12c0-.79.14-1.55.38-2.27v-3.1H1.3A12 12 0 000 12c0 1.94.46 3.77 1.3 5.37l4-3.1z"
+                  />
+                  <path
+                    fill="#EA4335"
+                    d="M12 4.77c1.76 0 3.34.61 4.58 1.8l3.43-3.43C17.95 1.18 15.24 0 12 0A12 12 0 001.3 6.63l4 3.1c.94-2.84 3.58-4.96 6.7-4.96z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">${text}</p>
+            <div class="testimonial-meta">
+              <span class="testimonial-stars">★★★★★</span
+              ><span class="testimonial-time">${time}</span>
+            </div>
+          </article>`,
+      );
+      render(
+        '#quick-links',
+        quickLinks,
+        ([href, label]) =>
+          `<li><a href="${href}" class="text-dark-muted font-body text-sm uppercase tracking-wide hover:text-dark-fg t-colors">${label}</a></li>`,
+      );
+      render(
+        '#footer-services',
+        footerServices,
+        (label) =>
+          `<li><a href="#" class="text-dark-muted font-body text-sm uppercase tracking-wide hover:text-dark-fg t-colors">${label}</a></li>`,
+      );
+      const menu = $('#mobile-menu');
+      const iconMenu = $('#icon-menu');
+      const iconClose = $('#icon-close');
+      const syncMenuIcon = (open) => {
+        iconMenu.classList.toggle('hidden', open);
+        iconClose.classList.toggle('hidden', !open);
+      };
+      const closeMenu = () => {
+        menu.classList.add('hidden');
+        menu.classList.remove('menu-open');
+        syncMenuIcon(false);
+      };
+      $('#menu-btn').addEventListener('click', () => {
+        const open = menu.classList.contains('hidden');
+        menu.classList.toggle('hidden');
+        menu.classList.remove('menu-open');
+        if (open) {
+          void menu.offsetWidth;
+          menu.classList.add('menu-open');
+        }
+        syncMenuIcon(open);
+      });
+      document
+        .querySelectorAll('[data-close-menu]')
+        .forEach((el) => el.addEventListener('click', closeMenu));
+    </script>
+  </body>
+</html>
